@@ -6,16 +6,18 @@
  */
 function createTable(){
 	/**
+	 * (within function: createTable)
 	 * Bringing in all the database into a variable on this js file to make it easier to work with
-	 * @var data (within function: createTable)
+	 * @var data 
 	 */
 	//Storing the database data in the variable data
 	var data = EPIresult;
 
 	/**
+	 * (within function: createTable)
 	 * Creating an array in which the headers of the database are saved into
 	 * The data is then "pushed" into it using a for loop runing through the data variable
-	 * @var col (within function: createTable) 
+	 * @var col  
 	 */
 	//Stores the column names to make them headings in the table
 	var col = [];
@@ -30,22 +32,25 @@ function createTable(){
 
 
 	/**
+	 * (within function: createTable)
 	 * Creating the table element using DOM createElement
-	 * @var table (within function: createTable)
+	 * @var table 
 	 */
 	//Creating the table using DOM
 	var table = document.createElement("table");
 
 	/**
+	 * (within function: createTable)
 	 * Creating a variable to be used later which inserts a row directly
-	 * @var tr (within function: createTable)
+	 * @var tr 
 	 */
 	//Creating a variable that inserts a row directly
 	var tr = table.insertRow(-1);
 
 	/**
+	 * (within function: createTable)
 	 * Using a for loop to iterate through the "col" variable with all the database headings in order to make them headings in the table as 'th' elements
-	 * @var th (within function: createTable)
+	 * @var th 
 	 */
 	//Creating the headers
 	for (var i = 0; i<col.length; i++){
@@ -71,9 +76,10 @@ function createTable(){
 	}
 
 	/**
+	 * (within function: createTable)
 	 * Getting the id of the element in which the table will be added to
 	 * The table is added by getting that elements innerHTML making it empty and appending the table to it
-	 * @var divData (within function: createTable)
+	 * @var divData 
 	 */
 	//Telling the code where to load the table within the html (in the paragraph with id "five")
 	var divData = document.getElementById('five');
@@ -94,26 +100,31 @@ function search() {
 	
 	
 	/** 
+	 * (within function: search)
 	 * Retrieving user input from search bar in the html
-	 * @var input (within function: search)
+	 * @var input 
 	*/
 	/** 
+	 * (within function: search)
 	 * Creating a variable to store the input in all uppercase
 	 * This is done so that there is no issue with different syntax problems when comparing the input and the data within the table
-	 * @var filter (within function: search)
+	 * @var filter
 	*/
 	/** 
+	 * (within function: search)
 	 * Retrieving the table that was created in the earlier function and appended to the element with id "five"
-	 * @var table (within function: search)
+	 * @var table 
 	*/
 	/** 
+	 * (within function: search)
 	 * Retrieving the rows in the table to then use to find the ones with data containing the user input in them
-	 * @var tr (within function: search)
+	 * @var tr 
 	*/
 	/** 
+	 * (within function: search)
 	 * Created at the beginning but actually defined later within the for loop
 	 * This will store the country name of the row being itterated through to then be compared to the earlier (user input) variable 'filter'
-	 * @var txtValue (within function: search)
+	 * @var txtValue 
 	*/
 	//Creating all the variables required for the search bar to work
 	var input, filter, table, tr, td, i, txtValue;
@@ -145,12 +156,13 @@ function search() {
 //Creating the bar chart
 /**
  * d3 barplot code used; No author. Button to change input data in barplot (upgraded): https://www.d3-graph-gallery.com/graph/barplot_button_data_hard.html (2018)
- * @link https://www.d3-graph-gallery.com/graph/barplot_button_data_hard.html
+ * {@link https://www.d3-graph-gallery.com/graph/barplot_button_data_hard.html}
  */
 
 /**
+ * (for bar chart creation)
  * Defining the first set of values for the top 5 countries
- * @constant data1 (for bar chart creation)
+ * @constant data1 
  */
 const data1 = [
 	{group: "Denmark", value: 82.5},
@@ -163,8 +175,9 @@ const data1 = [
  ];
  
  /**
+ * (for bar chart creation)
  * Defining the second set of values for the top 5 countries
- * @constant data2 (for bar chart creation)
+ * @constant data2 
  */
  const data2 = [
 	{group: "Denmark", value: 7.3},
@@ -175,8 +188,9 @@ const data1 = [
  ];
  
  /**
+ * (for bar chart creation)
  * Defining the margins for the bar chart and the rectangles
- * @constant margin (for bar chart creation)
+ * @constant margin 
  */
 //margins for bar chart
  const margin = {top: 30, right: 30, bottom: 70, left: 60},
@@ -185,8 +199,9 @@ const data1 = [
 
 // appending the svg object to the page
 /**
+ * (for bar chart)
  * adding svg to the page with d3 at the element with id 'seven' 
- * @constant svg (for bar chart)
+ * @constant svg 
  */
 const svg = d3.select("#seven")
   .append("svg")
@@ -196,8 +211,9 @@ const svg = d3.select("#seven")
 	.attr("transform", `translate(${margin.left},${margin.top})`);
 
 /**
+ * (for bar chart)
  * Created to initialising the x axis using d3
- * @constant x (for bar chart) 
+ * @constant x  
  */
 //X axis
 const x = d3.scaleBand()
@@ -207,8 +223,9 @@ const xAxis = svg.append("g")
   .attr("transform", `translate(0,${height})`)
 
   /**
+ * (for bar chart)
  * Created to initialising the y axis using d3
- * @constant y (for bar chart) 
+ * @constant y  
  */
 //Y axis
 const y = d3.scaleLinear()
@@ -232,8 +249,9 @@ function update(data) {
   yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
 /**
+ * (for function: update())
  * This variable is used to represent all the rectangles on the bar chart to be updated
- * @var u (for function: update())
+ * @var u 
  */
 
   var u = svg.selectAll("rect")
@@ -268,12 +286,14 @@ function submitData() {
 
 
 	/**
+	 * (for function: submitData())
 	 * Using DOM the user input for their email is retrieved and stored in this variable
-	 * @var emailUser (for function: submitData())
+	 * @var emailUser 
 	 */
 	/**
+	 * (for function: submitData())
 	 * Using DOM the user input for their comment is retrieved and stored in this variable
-	 * @var commentUser (for function: submitData())
+	 * @var commentUser 
 	 */
 	var emailUser = document.getElementById("userEmail").value;
 	var commentUser = document.getElementById("commentUser").value;
@@ -291,8 +311,9 @@ function submitData() {
 function openList(){
 
 	/**
+	 * (for function openList())
 	 * Retrieving the list of the abrreviation and their meaning to then evaluate whether it is shown when the button is clicked and if it isn't then display it and if it is then hide it
-	 * @var list (for function openList())
+	 * @var list 
 	 */
 	var list = document.getElementById("abrevList");
 
